@@ -121,12 +121,12 @@ PASS=0
 
 while [ \$PASS -eq 0 ]
 do
-  isup=$(cat /sys/class/net/${wandevice}/operstate)
+  isup=\$(cat /sys/class/net/${wandevice}/operstate)
   logger -t DEBUG "The wan first check is \${isup}"
 
   if [ "\$isup" != "up" ]; then
     sleep 10 #sec
-    isup=$(cat /sys/class/net/${wandevice}/operstate)
+    isup=\$(cat /sys/class/net/${wandevice}/operstate)
     logger -t DEBUG "The wan second check is \${isup}"
 
     if [ "\$isup" != "up" ]; then
